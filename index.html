@@ -19,9 +19,11 @@ body{
 
 /* HEADER */
 header{
-    text-align:center;
-    padding:30px 15px;
-    animation:fadeDown 1s ease;
+    <header class="logo-box">
+    <img src="1764922500946.jpg" alt="VINCITY ROLEPLAY LOGO">
+    <h1>VINCITY ROLEPLAY</h1>
+    <p>Indonesia Roleplay Server • SA-MP</p>
+</header>
 }
 
 header img{
@@ -139,6 +141,45 @@ footer{
     70%{box-shadow:0 0 0 15px rgba(179,102,255,0);}
     100%{box-shadow:0 0 0 0 rgba(179,102,255,0);}
 }
+
+/* LOGO SERVER */
+.logo-box{
+    text-align:center;
+    padding:30px 15px;
+    animation:fadeDown 1s ease;
+}
+
+.logo-box img{
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    object-fit:cover;
+    margin-bottom:15px;
+    box-shadow:0 0 25px rgba(180,0,255,0.8);
+    animation:logoGlow 3s infinite alternate;
+}
+
+.logo-box h1{
+    color:#c77dff;
+    letter-spacing:3px;
+    margin-bottom:6px;
+}
+
+.logo-box p{
+    font-size:13px;
+    opacity:0.75;
+}
+
+/* ANIMASI LOGO */
+@keyframes logoGlow{
+    from{
+        box-shadow:0 0 15px rgba(180,0,255,0.4);
+        transform:scale(1);
+    }
+    to{
+        box-shadow:0 0 35px rgba(180,0,255,1);
+        transform:scale(1.05);
+    }
 </style>
 </head>
 
