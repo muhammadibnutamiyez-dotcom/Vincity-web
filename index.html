@@ -5,239 +5,182 @@
 <title>VINCITY ROLEPLAY</title>
 
 <style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial, sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Arial}
 
 body{
-    background: linear-gradient(135deg, #0c0c0c, #1a0a1f);
-    color:#e0e0e0;
+background:linear-gradient(135deg,#0c0c0c,#1a0a1f);
+color:#e0e0e0;
 }
 
-/* LOGO */
-.logo-box{
-    text-align:center;
-    padding:25px 15px;
+/* POPUP */
+.popup{
+position:fixed;inset:0;
+background:rgba(0,0,0,.9);
+display:flex;align-items:center;justify-content:center;
+z-index:9999;
+}
+.popup-box{
+background:#1a0a1f;
+border:1px solid #9b59b6;
+padding:30px;
+border-radius:18px;
+text-align:center;
+box-shadow:0 0 30px rgba(180,0,255,.6);
+}
+.popup-box img{
+width:120px;height:120px;border-radius:50%;
+margin-bottom:15px;
+box-shadow:0 0 25px rgba(180,0,255,.8);
+}
+.popup-box button{
+margin-top:15px;
+padding:12px 28px;
+border:none;border-radius:30px;
+background:#9b59b6;color:white;font-weight:bold;
 }
 
+/* HEADER */
+.logo-box{text-align:center;padding:30px 15px}
 .logo-box img{
-    width:120px;
-    height:120px;
-    border-radius:50%;
-    object-fit:cover;
-    box-shadow:0 0 30px rgba(180,0,255,0.9);
-    margin-bottom:15px;
+width:130px;height:130px;border-radius:50%;
+margin-bottom:15px;
+box-shadow:0 0 30px rgba(180,0,255,.9);
 }
+.logo-box h1{color:#c77dff;letter-spacing:3px}
+.status{margin-top:10px;color:#00ff99;font-weight:bold}
 
-.logo-box h1{
-    color:#c77dff;
-    letter-spacing:3px;
-}
-
-.logo-box p{
-    font-size:13px;
-    opacity:0.75;
-}
-
-.status{
-    margin-top:8px;
-    font-weight:bold;
-    color:#00ff99;
-}
-
-/* SECTION */
-section{
-    padding:20px;
-}
-
-/* CARD */
-.card{
-    background:#1a0a1f;
-    border-radius:14px;
-    padding:18px;
-    margin-bottom:18px;
-    border:1px solid #9b59b6;
-    box-shadow:0 0 15px rgba(155,89,182,0.25);
-}
-
-.card h2{
-    color:#b366ff;
-    margin-bottom:10px;
-}
-
-ul{
-    list-style:none;
-}
-
-ul li{
-    padding:6px 0;
-    border-bottom:1px solid rgba(255,255,255,0.05);
+/* VIDEO */
+.video-box{padding:0 20px 20px}
+.video-box iframe{
+width:100%;height:200px;
+border-radius:16px;
+border:1px solid #9b59b6;
 }
 
 /* BUTTON */
 .btn{
-    display:block;
-    text-align:center;
-    background:#9b59b6;
-    color:white;
-    padding:12px;
-    border-radius:30px;
-    margin-top:12px;
-    text-decoration:none;
-    font-weight:bold;
+display:block;
+background:#9b59b6;
+color:white;
+text-align:center;
+padding:12px;
+border-radius:30px;
+margin-top:10px;
+font-weight:bold;
+text-decoration:none;
+cursor:pointer;
 }
+.btn-green{background:#00ff99;color:#000}
+.btn-blue{background:#5865F2}
 
-/* VIDEO */
-.video-box{
-    width:100%;
-    height:220px;
-    margin-top:25px;
-    overflow:hidden;
-    border-radius:14px;
-    border:1px solid #9b59b6;
+/* CARD */
+section{padding:20px}
+.card{
+background:#1a0a1f;
+border:1px solid #9b59b6;
+border-radius:14px;
+padding:18px;
+margin-bottom:18px;
+box-shadow:0 0 15px rgba(155,89,182,.25);
 }
-
-.video-box iframe{
-    width:100%;
-    height:100%;
-    border:none;
-}
+.card h2{color:#b366ff;margin-bottom:10px}
 
 /* FOOTER */
-footer{
-    text-align:center;
-    padding:15px;
-    font-size:12px;
-    opacity:0.6;
-}
-
-/* POPUP MUSIK */
-.popup{
-    position:fixed;
-    top:0;
-    left:0;
-    width:100%;
-    height:100%;
-    background:rgba(0,0,0,0.85);
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    z-index:999;
-}
-
-.popup-box{
-    background:#1a0a1f;
-    border:1px solid #9b59b6;
-    border-radius:16px;
-    padding:25px;
-    text-align:center;
-}
-
-.popup-box h2{
-    color:#c77dff;
-    margin-bottom:10px;
-}
-
-.popup-box p{
-    font-size:14px;
-    opacity:0.8;
-    margin-bottom:20px;
-}
-
-.popup-btn{
-    padding:12px 18px;
-    border:none;
-    border-radius:30px;
-    font-weight:bold;
-    margin:5px;
-    cursor:pointer;
-}
-
-.yes{background:#00ff99;color:#000;}
-.no{background:#ff3366;color:white;}
+footer{text-align:center;padding:15px;font-size:12px;opacity:.6}
 </style>
 </head>
 
 <body>
 
-<!-- AUDIO -->
 <audio id="bgMusic" loop>
-    <source src="audio.mp3" type="audio/mpeg">
+<source src="audio.mp3" type="audio/mpeg">
 </audio>
 
 <!-- POPUP -->
-<div class="popup" id="musicPopup">
-    <div class="popup-box">
-        <h2> MUSIK LATAR</h2>
-        <p>Mau nyalain musik background?</p>
-        <button class="popup-btn yes" onclick="playMusic()">YA</button>
-        <button class="popup-btn no" onclick="closePopup()">TIDAK</button>
-    </div>
+<div class="popup" id="popup">
+<div class="popup-box">
+<img src="1768587468171.jpg">
+<h2>WELCOME TO VINCITY ROLEPLAY</h2>
+<p>Indonesia Serious Roleplay Server</p>
+<button onclick="closePopup()">ENTER</button>
+</div>
 </div>
 
-<!-- HEADER -->
 <header class="logo-box">
-    <img src="1768587468171.jpg">
-    <h1>VINCITY ROLEPLAY</h1>
-    <p>Indonesia Roleplay Server • SA-MP</p>
-    <div class="status"> SERVER ONLINE</div>
+<img src="1768587468171.jpg">
+<h1>VINCITY ROLEPLAY</h1>
+<p>Indonesia Roleplay Server • SA-MP</p>
+<div class="status" id="player"> ONLINE | 30 / 150 PLAYERS</div>
 </header>
+
+<!-- VIDEO -->
+<div class="video-box">
+<iframe src="https://www.youtube.com/embed/aXO-YZ9jN8o?autoplay=1&mute=1&loop=1&playlist=aXO-YZ9jN8o&controls=0"
+allow="autoplay"></iframe>
+</div>
 
 <section>
 
 <div class="card">
-<h2> INFORMASI SERVER</h2>
-<p>Server SA-MP dengan staff berpengalaman dan roleplay serius.</p>
+<h2>SERVER IP</h2>
+<p id="ip">178.128.222.239:7777</p>
+<button class="btn btn-green" onclick="copyIP()">SALIN IP</button>
 </div>
 
 <div class="card">
-<h2> SERVER IP</h2>
-<p><b>178.128.222.239:7777</b></p>
+<h2>DISCORD</h2>
+<a class="btn btn-blue" href="https://discord.gg/XuaJSh4W9" target="_blank">
+JOIN DISCORD
+</a>
 </div>
 
 <div class="card">
-<h2> ADMIN & STAFF</h2>
-<ul>
-<li> Owner : Wisky</li>
-<li> Developer : Samsoll & Asthon</li>
-<li> Admin : Kuro</li>
-</ul>
+<h2>ADMIN & STAFF</h2>
+<p>
+Owner : Wisky<br>
+Developer : Samsoll & Asthon<br>
+Admin : Kuro
+</p>
 </div>
 
 <div class="card">
-<h2> DISCORD</h2>
-<a class="btn" href="https://discord.gg/XuaJSh4W9">JOIN DISCORD</a>
-
-<!-- VIDEO DI BAWAH JOIN DISCORD -->
-<div class="video-box">
-<iframe
-src="https://www.youtube.com/embed/aXO-YZ9jN8o?autoplay=1&mute=1&loop=1&playlist=aXO-YZ9jN8o&controls=0"
-allow="autoplay; encrypted-media"
-allowfullscreen>
-</iframe>
-</div>
+<h2>MUSIC</h2>
+<button class="btn" onclick="toggleMusic()">PLAY / STOP MUSIC</button>
 </div>
 
 </section>
 
-<footer>
-<p>© 2026 VINCITY ROLEPLAY</p>
-</footer>
+<footer>© 2026 VINCITY ROLEPLAY</footer>
 
 <script>
-const popup = document.getElementById("musicPopup");
-const music = document.getElementById("bgMusic");
-
-function playMusic(){
-    music.play();
-    popup.style.display="none";
-}
+/* POPUP */
 function closePopup(){
-    popup.style.display="none";
+document.getElementById("popup").style.display="none";
 }
+
+/* MUSIC */
+let on=false;
+const music=document.getElementById("bgMusic");
+function toggleMusic(){
+on?music.pause():music.play();
+on=!on;
+}
+
+/* COPY IP */
+function copyIP(){
+navigator.clipboard.writeText("178.128.222.239:7777");
+alert("IP BERHASIL DISALIN!");
+}
+
+/* FAKE PLAYER */
+let p=30;
+setInterval(()=>{
+p+=Math.floor(Math.random()*5)-2;
+if(p<15)p=15;
+if(p>90)p=90;
+document.getElementById("player").innerText=
+" ONLINE | "+p+" / 150 PLAYERS";
+},4000);
 </script>
 
 </body>
