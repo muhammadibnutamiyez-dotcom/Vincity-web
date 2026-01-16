@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>VINCITY ROLEPLAY</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg, #0c0c0c, #1a0a1f);
+    color:#e0e0e0;
+}
+
+/* HEADER */
+header{
+    text-align:center;
+    padding:30px 15px;
+    animation:fadeDown 1s ease;
+}
+
+header img{
+    width:120px;
+    border-radius:50%;
+    margin-bottom:15px;
+    box-shadow:0 0 25px #b366ff;
+}
+
+header h1{
+    color:#9b59b6;
+    letter-spacing:2px;
+}
+
+header p{
+    font-size:14px;
+    opacity:0.8;
+    margin-top:6px;
+}
+
+/* STATUS */
+.status{
+    margin-top:12px;
+    font-weight:bold;
+    color:#b366ff;
+    font-size:16px;
+}
+
+.status.offline{
+    color:#ff3366;
+}
+
+/* SECTION */
+section{
+    padding:20px;
+}
+
+/* CARD */
+.card{
+    background:#1a0a1f;
+    border-radius:14px;
+    padding:18px;
+    margin-bottom:18px;
+    border:1px solid #9b59b6;
+    box-shadow:0 0 15px rgba(155,89,182,0.25);
+    animation:fadeUp 0.8s ease;
+}
+
+.card h2{
+    color:#b366ff;
+    margin-bottom:10px;
+}
+
+.card p{
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* LIST */
+ul{
+    list-style:none;
+}
+
+ul li{
+    padding:6px 0;
+    border-bottom:1px solid rgba(255,255,255,0.05);
+}
+
+/* BUTTON */
+.btn{
+    display:block;
+    text-align:center;
+    background:#9b59b6;
+    color:white;
+    padding:12px;
+    border-radius:30px;
+    margin-top:12px;
+    text-decoration:none;
+    font-weight:bold;
+    box-shadow:0 0 15px #b366ff;
+    transition:0.3s;
+    animation:pulse 2s infinite;
+}
+
+.btn:hover{
+    box-shadow:0 0 25px #b366ff,0 0 50px #b366ff;
+    transform:scale(1.05);
+}
+
+.btn:active{
+    transform:scale(0.95);
+}
+
+/* FOOTER */
+footer{
+    text-align:center;
+    padding:15px;
+    font-size:12px;
+    opacity:0.6;
+}
+
+/* ANIMASI */
+@keyframes fadeUp{
+    from{opacity:0;transform:translateY(25px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes fadeDown{
+    from{opacity:0;transform:translateY(-25px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+@keyframes pulse{
+    0%{box-shadow:0 0 0 0 rgba(179,102,255,0.7);}
+    70%{box-shadow:0 0 0 15px rgba(179,102,255,0);}
+    100%{box-shadow:0 0 0 0 rgba(179,102,255,0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- SOUND EFFECT GTA -->
+<audio id="gtaSound" loop>
+  <source src="gta.mp3" type="audio/mpeg">
+</audio>
+
+<header onclick="playSound()">
+<h1>VINCITY ROLEPLAY</h1>
+<p>Indonesia Roleplay Server • Serious RP</p>
+<div class="status" id="serverStatus"> SERVER ONLINE</div>
+<!-- ganti manual jika mau offline -->
+</header>
+
+<section>
+
+<div class="card">
+<h2> INFORMASI SERVER</h2>
+<p>
+Server SA-MP baru dibuat, dengan staff berpengalaman. Roleplay berjalan, server asyik & dark vibe!
+</p>
+</div>
+
+<div class="card">
+<h2> SERVER IP</h2>
+<p>IP: <b>178.128.222.239:7777</b></p>
+<a class="btn" href="#" onclick="playSound()">SALIN IP</a>
+</div>
+
+<div class="card">
+<h2> ADMIN & STAFF</h2>
+<ul>
+<li> Owner : Wisky</li>
+<li> Developer : Samsoll & Asthon</li>
+<li> Head Admin : -</li>
+<li> Admin : Kuro</li>
+</ul>
+</div>
+
+<div class="card">
+<h2> DISCORD SERVER</h2>
+<p>WAJIB GABUNG DISCORD UNTUK TAKE ROLE DAN MEMBUAT AKUN UCP!!</p>
+<a class="btn" href="https://discord.gg/XuaJSh4W9" onclick="playSound()">JOIN DISCORD</a>
+</div>
+
+</section>
+
+<footer>
+<p>© 2026 VINCITY ROLEPLAY</p>
+</footer>
+
+<script>
+// SOUND EFFECT
+function playSound(){
+    var audio = document.getElementById("gtaSound");
+    audio.play();
+}
+</script>
+
+</body>
+  </html>
