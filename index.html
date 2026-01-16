@@ -17,43 +17,39 @@ body{
     color:#e0e0e0;
 }
 
-/* HEADER */
-header{
-    <header class="logo-box">
-    <img src="1768587468171.jpg" alt="VINCITY ROLEPLAY LOGO">
-    <h1>VINCITY ROLEPLAY</h1>
-    <p>Indonesia Roleplay Server â€¢ SA-MP</p>
-</header>
+/* LOGO HEADER */
+.logo-box{
+    text-align:center;
+    padding:30px 15px;
+    animation:fadeDown 1s ease;
 }
 
-header img{
-    width:120px;
+.logo-box img{
+    width:130px;
+    height:130px;
+    height:130px;
     border-radius:50%;
+    object-fit:cover;
     margin-bottom:15px;
-    box-shadow:0 0 25px #b366ff;
+    box-shadow:0 0 30px rgba(180,0,255,0.9);
+    animation:logoGlow 3s infinite alternate;
 }
 
-header h1{
-    color:#9b59b6;
-    letter-spacing:2px;
+.logo-box h1{
+    color:#c77dff;
+    letter-spacing:3px;
 }
 
-header p{
-    font-size:14px;
-    opacity:0.8;
-    margin-top:6px;
+.logo-box p{
+    font-size:13px;
+    opacity:0.75;
 }
 
 /* STATUS */
 .status{
-    margin-top:12px;
+    margin-top:10px;
     font-weight:bold;
-    color:#b366ff;
-    font-size:16px;
-}
-
-.status.offline{
-    color:#ff3366;
+    color:#00ff99;
 }
 
 /* SECTION */
@@ -82,7 +78,6 @@ section{
     line-height:1.6;
 }
 
-/* LIST */
 ul{
     list-style:none;
 }
@@ -104,13 +99,7 @@ ul li{
     text-decoration:none;
     font-weight:bold;
     box-shadow:0 0 15px #b366ff;
-    transition:0.3s;
     animation:pulse 2s infinite;
-}
-
-.btn:hover{
-    box-shadow:0 0 25px #b366ff,0 0 50px #b366ff;
-    transform:scale(1.05);
 }
 
 .btn:active{
@@ -142,73 +131,37 @@ footer{
     100%{box-shadow:0 0 0 0 rgba(179,102,255,0);}
 }
 
-/* LOGO SERVER */
-.logo-box{
-    text-align:center;
-    padding:30px 15px;
-    animation:fadeDown 1s ease;
-}
-
-.logo-box img{
-    width:130px;
-    height:130px;
-    border-radius:50%;
-    object-fit:cover;
-    margin-bottom:15px;
-    box-shadow:0 0 25px rgba(180,0,255,0.8);
-    animation:logoGlow 3s infinite alternate;
-}
-
-.logo-box h1{
-    color:#c77dff;
-    letter-spacing:3px;
-    margin-bottom:6px;
-}
-
-.logo-box p{
-    font-size:13px;
-    opacity:0.75;
-}
-
-/* ANIMASI LOGO */
 @keyframes logoGlow{
-    from{
-        box-shadow:0 0 15px rgba(180,0,255,0.4);
-        transform:scale(1);
-    }
-    to{
-        box-shadow:0 0 35px rgba(180,0,255,1);
-        transform:scale(1.05);
-    }
+    from{transform:scale(1);}
+    to{transform:scale(1.05);}
+}
 </style>
 </head>
 
 <body>
 
-<!-- SOUND EFFECT GTA -->
-<audio id="gtaSound" loop>
+<!-- SOUND -->
+<audio id="gtaSound">
   <source src="gta.mp3" type="audio/mpeg">
 </audio>
 
-<header onclick="playSound()">
-<h1>VINCITY ROLEPLAY</h1>
-<p>Indonesia Roleplay Server â€¢ Serious RP</p>
-<div class="status" id="serverStatus"> SERVER ONLINE</div>
-<!-- ganti manual jika mau offline -->
+<header class="logo-box" onclick="playSound()">
+    <img src="1768587468171.jpg" alt="VINCITY ROLEPLAY LOGO">
+    <h1>VINCITY ROLEPLAY</h1>
+    <p>Indonesia Roleplay Server • SA-MP</p>
+    <div class="status"> SERVER ONLINE</div>
 </header>
 
 <section>
 
 <div class="card">
 <h2> INFORMASI SERVER</h2>
-<p>
-Server SA-MP baru dibuat, dengan staff berpengalaman. Roleplay berjalan, server asyik & dark vibe!
-</p>
+<p>Server SA-MP baru dengan staff berpengalaman dan roleplay serius.</p>
 </div>
 
 <div class="card">
 <h2> SERVER IP</h2>
-<p>IP: <b>178.128.222.239:7777</b></p>
+<p><b>178.128.222.239:7777</b></p>
 <a class="btn" href="#" onclick="playSound()">SALIN IP</a>
 </div>
 
@@ -216,32 +169,29 @@ Server SA-MP baru dibuat, dengan staff berpengalaman. Roleplay berjalan, server 
 <h2> ADMIN & STAFF</h2>
 <ul>
 <li> Owner : Wisky</li>
-<li> Developer : Samsoll & Asthon</li>
-<li> Head Admin : -</li>
+<li> Developer : Samsoll & Asthon</li>
+<li> Head Admin : -</li>
 <li> Admin : Kuro</li>
 </ul>
 </div>
 
 <div class="card">
-<h2> DISCORD SERVER</h2>
-<p>WAJIB GABUNG DISCORD UNTUK TAKE ROLE DAN MEMBUAT AKUN UCP!!</p>
+<h2> DISCORD</h2>
 <a class="btn" href="https://discord.gg/XuaJSh4W9" onclick="playSound()">JOIN DISCORD</a>
 </div>
 
 </section>
 
 <footer>
-<p>Â© 2026 VINCITY ROLEPLAY</p>
+<p>© 2026 VINCITY ROLEPLAY</p>
 </footer>
 
 <script>
-// SOUND EFFECT
 function playSound(){
     var audio = document.getElementById("gtaSound");
-    audio.play();
+    if(audio) audio.play();
 }
 </script>
 
 </body>
-
 </html>
