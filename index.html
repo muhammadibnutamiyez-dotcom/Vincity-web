@@ -17,11 +17,10 @@ body{
     color:#e0e0e0;
 }
 
-/* LOGO HEADER */
+/* LOGO */
 .logo-box{
     text-align:center;
     padding:30px 15px;
-    animation:fadeDown 1s ease;
 }
 
 .logo-box img{
@@ -50,27 +49,6 @@ body{
     color:#00ff99;
 }
 
-/* MUSIC BUTTON */
-.music-btn{
-    position:fixed;
-    top:15px;
-    right:15px;
-    background:#9b59b6;
-    color:white;
-    border:none;
-    border-radius:50%;
-    width:55px;
-    height:55px;
-    font-size:22px;
-    cursor:pointer;
-    box-shadow:0 0 20px rgba(179,102,255,0.8);
-    transition:0.3s;
-}
-
-.music-btn:hover{
-    transform:scale(1.1);
-}
-
 /* SECTION */
 section{
     padding:20px;
@@ -84,17 +62,11 @@ section{
     margin-bottom:18px;
     border:1px solid #9b59b6;
     box-shadow:0 0 15px rgba(155,89,182,0.25);
-    animation:fadeUp 0.8s ease;
 }
 
 .card h2{
     color:#b366ff;
     margin-bottom:10px;
-}
-
-.card p{
-    font-size:14px;
-    line-height:1.6;
 }
 
 ul{
@@ -117,12 +89,6 @@ ul li{
     margin-top:12px;
     text-decoration:none;
     font-weight:bold;
-    box-shadow:0 0 15px #b366ff;
-    animation:pulse 2s infinite;
-}
-
-.btn:active{
-    transform:scale(0.95);
 }
 
 /* FOOTER */
@@ -133,23 +99,60 @@ footer{
     opacity:0.6;
 }
 
+/* POPUP */
+.popup{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.85);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:999;
+}
+
+.popup-box{
+    background:#1a0a1f;
+    border:1px solid #9b59b6;
+    border-radius:16px;
+    padding:25px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(180,0,255,0.6);
+}
+
+.popup-box h2{
+    color:#c77dff;
+    margin-bottom:10px;
+}
+
+.popup-box p{
+    font-size:14px;
+    opacity:0.8;
+    margin-bottom:20px;
+}
+
+.popup-btn{
+    padding:12px 18px;
+    border:none;
+    border-radius:30px;
+    font-weight:bold;
+    margin:5px;
+    cursor:pointer;
+}
+
+.yes{
+    background:#00ff99;
+    color:#000;
+}
+
+.no{
+    background:#ff3366;
+    color:white;
+}
+
 /* ANIMASI */
-@keyframes fadeUp{
-    from{opacity:0;transform:translateY(25px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes fadeDown{
-    from{opacity:0;transform:translateY(-25px);}
-    to{opacity:1;transform:translateY(0);}
-}
-
-@keyframes pulse{
-    0%{box-shadow:0 0 0 0 rgba(179,102,255,0.7);}
-    70%{box-shadow:0 0 0 15px rgba(179,102,255,0);}
-    100%{box-shadow:0 0 0 0 rgba(179,102,255,0);}
-}
-
 @keyframes logoGlow{
     from{transform:scale(1);}
     to{transform:scale(1.05);}
@@ -164,11 +167,18 @@ footer{
     <source src="audio.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MUSIC TOGGLE -->
-<button class="music-btn" onclick="toggleMusic()" id="musicBtn"></button>
+<!-- POPUP MUSIK -->
+<div class="popup" id="musicPopup">
+    <div class="popup-box">
+        <h2> MUSIK LATAR</h2>
+        <p>Mau nyalain musik background?</p>
+        <button class="popup-btn yes" onclick="playMusic()"> YA, NYALAIN</button>
+        <button class="popup-btn no" onclick="noMusic()"> TIDAK</button>
+    </div>
+</div>
 
 <header class="logo-box">
-    <img src="1768587468171.jpg" alt="VINCITY ROLEPLAY LOGO">
+    <img src="1768587468171.jpg">
     <h1>VINCITY ROLEPLAY</h1>
     <p>Indonesia Roleplay Server • SA-MP</p>
     <div class="status"> SERVER ONLINE</div>
@@ -177,23 +187,21 @@ footer{
 <section>
 
 <div class="card">
-<h2> INFORMASI SERVER</h2>
+<h2> INFORMASI SERVER</h2>
 <p>Server SA-MP baru dengan staff berpengalaman dan roleplay serius.</p>
 </div>
 
 <div class="card">
 <h2> SERVER IP</h2>
 <p><b>178.128.222.239:7777</b></p>
-<a class="btn" onclick="copyIP()">SALIN IP</a>
 </div>
 
 <div class="card">
 <h2> ADMIN & STAFF</h2>
 <ul>
-<li>Owner : Wisky</li>
-<li>Developer : Samsoll & Asthon</li>
-<li>Head Admin : -</li>
-<li>Admin : Kuro</li>
+<li> Owner : Wisky</li>
+<li> Developer : Samsoll & Asthon</li>
+<li> Admin : Kuro</li>
 </ul>
 </div>
 
@@ -209,26 +217,16 @@ footer{
 </footer>
 
 <script>
-let isPlaying = false;
+const popup = document.getElementById("musicPopup");
 const music = document.getElementById("bgMusic");
-const btn = document.getElementById("musicBtn");
 
-function toggleMusic(){
-    if(!isPlaying){
-        music.volume = 0.6;
-        music.play();
-        btn.innerHTML = "";
-        isPlaying = true;
-    }else{
-        music.pause();
-        btn.innerHTML = "";
-        isPlaying = false;
-    }
+function playMusic(){
+    music.play();
+    popup.style.display = "none";
 }
 
-function copyIP(){
-    navigator.clipboard.writeText("178.128.222.239:7777");
-    alert("IP berhasil disalin!");
+function noMusic(){
+    popup.style.display = "none";
 }
 </script>
 
