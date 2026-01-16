@@ -27,7 +27,6 @@ body{
 .logo-box img{
     width:130px;
     height:130px;
-    height:130px;
     border-radius:50%;
     object-fit:cover;
     margin-bottom:15px;
@@ -45,11 +44,31 @@ body{
     opacity:0.75;
 }
 
-/* STATUS */
 .status{
     margin-top:10px;
     font-weight:bold;
     color:#00ff99;
+}
+
+/* MUSIC BUTTON */
+.music-btn{
+    position:fixed;
+    top:15px;
+    right:15px;
+    background:#9b59b6;
+    color:white;
+    border:none;
+    border-radius:50%;
+    width:55px;
+    height:55px;
+    font-size:22px;
+    cursor:pointer;
+    box-shadow:0 0 20px rgba(179,102,255,0.8);
+    transition:0.3s;
+}
+
+.music-btn:hover{
+    transform:scale(1.1);
 }
 
 /* SECTION */
@@ -140,59 +159,78 @@ footer{
 
 <body>
 
-<!-- SOUND -->
-<audio id="gtaSound">
-  <source src="audio.mp3" type="audio/mpeg">
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+    <source src="audio.mp3" type="audio/mpeg">
 </audio>
 
-<header class="logo-box" onclick="playSound()">
+<!-- MUSIC TOGGLE -->
+<button class="music-btn" onclick="toggleMusic()" id="musicBtn"></button>
+
+<header class="logo-box">
     <img src="1768587468171.jpg" alt="VINCITY ROLEPLAY LOGO">
     <h1>VINCITY ROLEPLAY</h1>
-    <p>Indonesia Roleplay Server â€¢ SA-MP</p>
+    <p>Indonesia Roleplay Server • SA-MP</p>
     <div class="status"> SERVER ONLINE</div>
 </header>
 
 <section>
 
 <div class="card">
-<h2> INFORMASI SERVER</h2>
+<h2> INFORMASI SERVER</h2>
 <p>Server SA-MP baru dengan staff berpengalaman dan roleplay serius.</p>
 </div>
 
 <div class="card">
 <h2> SERVER IP</h2>
 <p><b>178.128.222.239:7777</b></p>
-<a class="btn" href="#" onclick="playSound()">SALIN IP</a>
+<a class="btn" onclick="copyIP()">SALIN IP</a>
 </div>
 
 <div class="card">
 <h2> ADMIN & STAFF</h2>
 <ul>
-<li> Owner : Wisky</li>
-<li> Developer : Samsoll & Asthon</li>
-<li> Head Admin : -</li>
-<li> Admin : Kuro</li>
+<li>Owner : Wisky</li>
+<li>Developer : Samsoll & Asthon</li>
+<li>Head Admin : -</li>
+<li>Admin : Kuro</li>
 </ul>
 </div>
 
 <div class="card">
 <h2> DISCORD</h2>
-<a class="btn" href="https://discord.gg/XuaJSh4W9" onclick="playSound()">JOIN DISCORD</a>
+<a class="btn" href="https://discord.gg/XuaJSh4W9">JOIN DISCORD</a>
 </div>
 
 </section>
 
 <footer>
-<p>Â© 2026 VINCITY ROLEPLAY</p>
+<p>© 2026 VINCITY ROLEPLAY</p>
 </footer>
 
 <script>
-function playSound(){
-    var audio = document.getElementById("gtaSound");
-    if(audio) audio.play();
+let isPlaying = false;
+const music = document.getElementById("bgMusic");
+const btn = document.getElementById("musicBtn");
+
+function toggleMusic(){
+    if(!isPlaying){
+        music.volume = 0.6;
+        music.play();
+        btn.innerHTML = "";
+        isPlaying = true;
+    }else{
+        music.pause();
+        btn.innerHTML = "";
+        isPlaying = false;
+    }
+}
+
+function copyIP(){
+    navigator.clipboard.writeText("178.128.222.239:7777");
+    alert("IP berhasil disalin!");
 }
 </script>
 
 </body>
-
 </html>
